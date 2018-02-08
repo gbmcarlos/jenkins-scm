@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<project>
+  <actions/>
+  <description></description>
+  <keepDependencies>false</keepDependencies>
+  <properties/>
+  <scm class="hudson.scm.NullSCM"/>
+  <canRoam>true</canRoam>
+  <disabled>false</disabled>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <triggers/>
+  <concurrentBuild>false</concurrentBuild>
+  <builders>
+    <hudson.tasks.Shell>
+      <command>export IP=0.0.0.0
+</command>
+    </hudson.tasks.Shell>
+    <hudson.tasks.Shell>
+      <command># install php if not installed
+php -v foo &gt;/dev/null 2&gt;&amp;1 || { sudo apt-get install php5-cli -y &gt;&amp;2; }
+
+# install composer if not installed
+composer about foo &gt;/dev/null 2&gt;&amp;1 || { php -r &quot;copy(&apos;https://getcomposer.org/installer&apos;, &apos;/usr/local/bin/composer&apos;);&quot; }</command>
+    </hudson.tasks.Shell>
+  </builders>
+  <publishers/>
+  <buildWrappers/>
+</project>
